@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="LoginPage.css">
+</head>
+<body>
+    <div class="login-wrapper">
+        <form action="" class="form">
+            <h2>Login</h2>
+            <div class="input-group">
+                <input type="text" name="loginUser" id="email" required /><br>
+                <label for="loginUser">Email Address: </label>
+            </div>
+            <div class="input-group">
+                <input type="password" name="loginPassword" id="password" required><br>
+                <label for="loginPassword">Password: </label>
+            </div>
+            <input type="submit" value="Login" class="submit-btn" onclick="auth()"/>
+        </form>
+    </div>
+    <script>
+        function auth(){
+            var email = document.getElementById("email").value;
+            let regex = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/;
+            let result = regex.test(email);
+            var password=document.getElementById("password").value;
+            const regex1 = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()\-+.]).{6,20}$/;
+            let result2= regex1.test(password);
+            if(result && result2){
+                window.location.assign("index.html");
+                alert("Login Successfully");
+            }
+            else{
+                alert("Invalid Information");
+                return;
+            }
+        }
+    </script>
+</body>
+</html>
